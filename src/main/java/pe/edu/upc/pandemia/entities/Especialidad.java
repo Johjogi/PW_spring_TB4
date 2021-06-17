@@ -16,17 +16,15 @@ import java.util.List;
 
 @Entity
 @Table(name="Especialidad",indexes  = {@Index(columnList = "Nombre",name = "Especialidad_index_Nombre")})
-@SequenceGenerator(name="getEspecialidad",initialValue = 1,allocationSize = 1)
 public class Especialidad {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "getEspecialidad")
-    @Column(name="Id",columnDefinition = "NUMERIC(10)",nullable = false)
+    @Column(name="especialidad_id",columnDefinition = "NUMERIC(10)",nullable = false)
     private Integer id;
 
     @Column(name="Nombre",length=40)
     private String Nombre;
 
-    @OneToMany(mappedBy = "Especialidad_Id", fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "especialidad", fetch = FetchType.LAZY)
     private List<Curriculum> Curriculums;
     
     
@@ -70,5 +68,15 @@ public class Especialidad {
 	public void setCurriculums(List<Curriculum> curriculums) {
 		Curriculums = curriculums;
 	}
+
+
+
+	public Especialidad(Integer id, String nombre, List<Curriculum> curriculums) {
+		super();
+		this.id = id;
+		Nombre = nombre;
+		Curriculums = curriculums;
+	}
      
+	
 }

@@ -20,12 +20,12 @@ public class HistorialPlan {
 
     @Id
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "DNI", nullable = false)
-    private Nutricionista nutricionista;
+    @JoinColumn(name = "paciente_dni", nullable = false)
+    private Paciente paciente;
 
     @Id
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "plan", nullable = false)
+    @JoinColumn(name = "plan_id", nullable = false)
     private Plan plan;
 
     @Id
@@ -33,12 +33,24 @@ public class HistorialPlan {
     @Temporal(TemporalType.DATE)
     private Date fechaInicio;
 
-	public Nutricionista getNutricionista() {
-		return nutricionista;
+	public HistorialPlan(Paciente paciente, Plan plan, Date fechaInicio) {
+		super();
+		this.paciente = paciente;
+		this.plan = plan;
+		this.fechaInicio = fechaInicio;
 	}
 
-	public void setNutricionista(Nutricionista nutricionista) {
-		this.nutricionista = nutricionista;
+	public HistorialPlan() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public Paciente getPaciente() {
+		return paciente;
+	}
+
+	public void setPaciente(Paciente paciente) {
+		this.paciente = paciente;
 	}
 
 	public Plan getPlan() {
@@ -56,6 +68,8 @@ public class HistorialPlan {
 	public void setFechaInicio(Date fechaInicio) {
 		this.fechaInicio = fechaInicio;
 	}
+
+	
     
     
 }

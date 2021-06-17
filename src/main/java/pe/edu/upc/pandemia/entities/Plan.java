@@ -16,29 +16,34 @@ import java.util.List;;
 
 @Entity
 @Table(name = "Plan",indexes = {@Index(columnList = "nombre",name="plan_index_nombre") })
-@SequenceGenerator(name="getPlan",initialValue = 1,allocationSize = 1)
 public class Plan {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "getPlan")
-    @Column(name = "id", columnDefinition = "NUMERIC(10)",nullable = false)
+    @Column(name ="plan_id", columnDefinition = "NUMERIC(10)",nullable = false)
     private Integer id;
 
-    @Column(name = "nombre", length = 15, nullable = false)
+    @Column(name = "nombre", length = 40, nullable = false)
     private String nombre;
 
-    @Column(name = "caracteristicas", length = 60, nullable = false)
+    @Column(name = "caracteristicas", length = 150, nullable = false)
     private String caracteristicas;
 
-    @Column(name = "monto", columnDefinition = "DECIMAL(3,2)")
+    @Column(name = "monto", columnDefinition = "DECIMAL(5,2)")
     private float monto;
 
     @OneToMany(mappedBy = "plan", fetch = FetchType.LAZY)
     private List<HistorialPlan> historialPlan;
     
-    public Plan() {
-    	historialPlan= new ArrayList<HistorialPlan>();
-    }
+  
+
+	public Plan(Integer id, String nombre, String caracteristicas, float monto, List<HistorialPlan> historialPlan) {
+		super();
+		this.id = id;
+		this.nombre = nombre;
+		this.caracteristicas = caracteristicas;
+		this.monto = monto;
+		this.historialPlan = historialPlan;
+	}
 
 	public Integer getId() {
 		return id;
@@ -79,5 +84,12 @@ public class Plan {
 	public void setHistorialPlan(List<HistorialPlan> historialPlan) {
 		this.historialPlan = historialPlan;
 	}
+
+	public Plan() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+	
+	
     
 }

@@ -19,57 +19,74 @@ public class Curriculum {
 
     @Id
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="Nutricionista_Id",nullable = false)
-    private Nutricionista Nutricionista_Id;
+    @JoinColumn(name="nutricionista_dni",nullable = false)
+    private Nutricionista nutricionista;
 
     @Id
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="Especialidad_Id",nullable = false)
-    private Especialidad Especialidad_Id;
+    @JoinColumn(name="especialidad_id",nullable = false)
+    private Especialidad especialidad;
 
     @Id
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="GradoAcademico",nullable = false)
-    private GradoAcademico GradoAcademico;
+    @JoinColumn(name="gradoAcademico_id",nullable = false)
+    private GradoAcademico gradoAcademico;
 
     @Id
     @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name="CasaDeEstudio",nullable = false)
-    private CasaDeEstudios CasaDeEstudio;
-    
-   
+    @JoinColumn(name="casaDeEstudios_id",nullable = false)
+    private CasaDeEstudios casaDeEstudios;
 
-	public Nutricionista getNutricionista_Id() {
-		return Nutricionista_Id;
+	public Curriculum() {
+		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public void setNutricionista_Id(Nutricionista nutricionista_Id) {
-		Nutricionista_Id = nutricionista_Id;
+	public Curriculum(Nutricionista nutricionista, Especialidad especialidad, GradoAcademico gradoAcademico,
+			CasaDeEstudios casaDeEstudio_Id) {
+		super();
+		this.nutricionista = nutricionista;
+		this.especialidad = especialidad;
+		this.gradoAcademico = gradoAcademico;
+		this.casaDeEstudios = casaDeEstudio_Id;
 	}
 
-	public Especialidad getEspecialidad_Id() {
-		return Especialidad_Id;
+	public Nutricionista getNutricionista() {
+		return nutricionista;
 	}
 
-	public void setEspecialidad_Id(Especialidad especialidad_Id) {
-		Especialidad_Id = especialidad_Id;
+	public void setNutricionista(Nutricionista nutricionista) {
+		this.nutricionista = nutricionista;
+	}
+
+	public Especialidad getEspecialidad() {
+		return especialidad;
+	}
+
+	public void setEspecialidad(Especialidad especialidad) {
+		this.especialidad = especialidad;
 	}
 
 	public GradoAcademico getGradoAcademico() {
-		return GradoAcademico;
+		return gradoAcademico;
 	}
 
 	public void setGradoAcademico(GradoAcademico gradoAcademico) {
-		GradoAcademico = gradoAcademico;
+		this.gradoAcademico = gradoAcademico;
 	}
 
-	public CasaDeEstudios getCasaDeEstudio() {
-		return CasaDeEstudio;
+	public CasaDeEstudios getCasaDeEstudio_Id() {
+		return casaDeEstudios;
 	}
 
-	public void setCasaDeEstudio(CasaDeEstudios casaDeEstudio) {
-		CasaDeEstudio = casaDeEstudio;
+	public void setCasaDeEstudio_Id(CasaDeEstudios casaDeEstudio_Id) {
+		casaDeEstudios= casaDeEstudio_Id;
 	}
+
     
+	
+   
+	
+	
 
 }

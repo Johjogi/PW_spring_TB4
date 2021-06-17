@@ -9,64 +9,16 @@ public class CurriculumId implements Serializable{
 	
 	private static final long serialVersionUID=1L;
 	
-    private Integer Nutricionista_Id;
-    private Integer Especialidad_Id;
-    private Integer GradoAcademico;
-    private Integer CasaDeEstudio;
+    private Integer nutricionista;
+    private Integer especialidad;
+    private Integer gradoAcademico;
+    private Integer casaDeEstudios;
 
-	
-    
-    public CurriculumId() {
-    	super();
-    }
-    
-    public CurriculumId(Integer Nutricionista_Id,Integer Especialidad_Id,Integer GradoAcademico,Integer CasaDeEstudio)
-    {
-    	super();
-    	this.Nutricionista_Id = Nutricionista_Id;
-    	this.Especialidad_Id = Especialidad_Id;
-    	this.GradoAcademico = GradoAcademico;
-    	this.CasaDeEstudio= CasaDeEstudio;
-    }
-    
   
-
-    
-    public Integer getNutricionista_Id() {
-		return Nutricionista_Id;
-	}
-
-	public void setNutricionista_Id(Integer nutricionista_Id) {
-		Nutricionista_Id = nutricionista_Id;
-	}
-
-	public Integer getEspecialidad_Id() {
-		return Especialidad_Id;
-	}
-
-	public void setEspecialidad_Id(Integer especialidad_Id) {
-		Especialidad_Id = especialidad_Id;
-	}
-
-	public Integer getGradoAcademico() {
-		return GradoAcademico;
-	}
-
-	public void setGradoAcademico(Integer gradoAcademico) {
-		GradoAcademico = gradoAcademico;
-	}
-
-	public Integer getCasaDeEstudio() {
-		return CasaDeEstudio;
-	}
-
-	public void setCasaDeEstudio(Integer casaDeEstudio) {
-		CasaDeEstudio = casaDeEstudio;
-	}
 
 	@Override
     public int hashCode() {
-    	return Objects.hash(Nutricionista_Id,Especialidad_Id,GradoAcademico,CasaDeEstudio);
+    	return Objects.hash(nutricionista,especialidad,gradoAcademico,casaDeEstudios);
     }
     
     @Override
@@ -77,18 +29,69 @@ public class CurriculumId implements Serializable{
     		return true;
     	
     	CurriculumId CurriculumId=(CurriculumId)obj;
-    	if(this.CasaDeEstudio!=CurriculumId.CasaDeEstudio)
+    	if(this.casaDeEstudios!=CurriculumId.casaDeEstudios)
     		return false;
-      	if(this.Especialidad_Id!=CurriculumId.Especialidad_Id)
+      	if(this.especialidad!=CurriculumId.especialidad)
     		return false;
-      	if(this.GradoAcademico!=CurriculumId.GradoAcademico)
+      	if(this.gradoAcademico!=CurriculumId.gradoAcademico)
     		return false;
-      	if(this.Nutricionista_Id!=CurriculumId.Nutricionista_Id)
+      	if(this.nutricionista!=CurriculumId.nutricionista)
     		return false;
       	return true;
     	
-    	
-    	
     }
+    
+	public static long getSerialversionuid() {
+		return serialVersionUID;
+	}
+
+	public CurriculumId() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
+	public CurriculumId(Integer nutricionista, Integer especialidad, Integer gradoAcademico, Integer casaDeEstudio) {
+		super();
+		this.nutricionista = nutricionista;
+		this.especialidad = especialidad;
+		this.gradoAcademico = gradoAcademico;
+		this.casaDeEstudios = casaDeEstudio;
+	}
+
+	public Integer getNutricionista() {
+		return nutricionista;
+	}
+
+	public void setNutricionista(Integer nutricionista) {
+		this.nutricionista = nutricionista;
+	}
+
+	public Integer getEspecialidad() {
+		return especialidad;
+	}
+
+	public void setEspecialidad(Integer especialidad) {
+		this.especialidad = especialidad;
+	}
+
+	public Integer getGradoAcademico() {
+		return gradoAcademico;
+	}
+
+	public void setGradoAcademico(Integer gradoAcademico) {
+		this.gradoAcademico = gradoAcademico;
+	}
+
+	public Integer getCasaDeEstudio() {
+		return casaDeEstudios;
+	}
+
+	public void setCasaDeEstudio(Integer casaDeEstudio) {
+		this.casaDeEstudios = casaDeEstudio;
+	}
+	
+	
+    
+    
     
 }

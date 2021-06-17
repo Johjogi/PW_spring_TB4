@@ -16,20 +16,28 @@ import java.util.List;
 
 @Entity
 @Table(name="GradoAcademico",indexes  = {@Index(columnList = "Nombre",name = "gradoAcademico_index_Nombre")})
-@SequenceGenerator(name="getGradoAcademico",initialValue = 1,allocationSize = 1)
 public class GradoAcademico {
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "getGradoAcademico")
-    @Column(name="Id",columnDefinition = "NUMERIC(10)",nullable = false)
+    @Column(name="gradoAcademico_id",columnDefinition = "NUMERIC(10)",nullable = false)
     private Integer id;
 
     @Column(name="Nombre",length=40)
     private String Nombre;
 
-    @OneToMany(mappedBy =  "GradoAcademico", fetch=FetchType.LAZY)
+    @OneToMany(mappedBy =  "gradoAcademico", fetch=FetchType.LAZY)
     private List<Curriculum> Curriculums;
     
-    public GradoAcademico() {
+  
+    
+    public GradoAcademico(Integer id, String nombre, List<Curriculum> curriculums) {
+		super();
+		this.id = id;
+		Nombre = nombre;
+		Curriculums = curriculums;
+	}
+
+    
+	public GradoAcademico() {
     	Curriculums= new ArrayList<Curriculum>();
     }
 
