@@ -10,9 +10,9 @@ $(document).ready(function() {
 		var name = button.data('name');
 
 		var modal = $(this)
-		modal.find('.modal-title').text('gaa')
+		modal.find('.modal-title').text('Plataforma de Pago')
 		modal.find('#pagar').text('Total: S/ ' + price)
-		modal.find('#planelegido').text('Nutrisan: ' + nhame + ' Plan')
+		modal.find('#planelegido').text('Nutrisan: ' + name + ' Plan')
 
 
 	})
